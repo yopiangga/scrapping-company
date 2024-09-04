@@ -3,7 +3,7 @@ const { Builder, By, Key } = require("selenium-webdriver");
 const sKemenperin = async (req, res) => {
   const tempData = [];
   const driver = await new Builder().forBrowser("chrome").build();
-  const pages = 10;
+  const pages = req.query.pages || 1;
 
   try {
     for (let i = 1; i <= pages; i++) {

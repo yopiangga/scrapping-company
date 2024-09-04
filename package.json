@@ -1,0 +1,12 @@
+{
+    "dependencies": {
+      "chromedriver": "^128.0.1",
+      "express": "^4.19.2",
+      "geckodriver": "^4.4.4",
+      "nodemon": "^3.1.4",
+      "selenium-webdriver": "^4.24.0"
+    },
+    "scripts": {
+      "start": "nodemon index.js"
+    }
+  }

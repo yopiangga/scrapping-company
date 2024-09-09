@@ -3,10 +3,11 @@ const { Builder, By, Key } = require("selenium-webdriver");
 const sKemenperin = async (req, res) => {
   const tempData = [];
   const driver = await new Builder().forBrowser("chrome").build();
-  const pages = req.query.pages || 1;
+  const start = req.query.start || 1;
+  const end = req.query.end || 1;
 
   try {
-    for (let i = 1; i <= pages; i++) {
+    for (let i = parseInt(start); i <= parseInt(end); i++) {
       await driver.get(
         "https://kemenperin.go.id/direktori-perusahaan?what=&prov=&hal=" + i
       );
@@ -30,7 +31,6 @@ const sKemenperin = async (req, res) => {
     await driver.quit();
   } catch (err) {
     console.log(err);
-    throw err;
   }
 
   res.json({ data: tempData });
